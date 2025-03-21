@@ -78,14 +78,9 @@ public class Matrix2d
                         -matrix._c,
                         -matrix._d);
 
-    //konwersja jawna z Matrix2d na int[,]
-    public static explicit operator int[,](Matrix2d m)
-       => new int[,] {{ m._a, m._b }, { m._c, m._d } };
+    public static explicit operator int[,](Matrix2d m) => new int[,] {{ m._a, m._b }, { m._c, m._d } };
 
-    //konwersja niejawna z int[,] na Matrix2d
-    public static implicit operator Matrix2d(int[,] a)
-        => new Matrix2d(a[0, 0], a[0, 1], a[1, 0], a[1, 1]);
-    //parsowanie stringa do Matrix2d
+    public static implicit operator Matrix2d(int[,] a) => new Matrix2d(a[0, 0], a[0, 1], a[1, 0], a[1, 1]);
     public static Matrix2d Parse(string s)
     {
         s = s.Replace("[", "").Replace("]", "");
@@ -96,6 +91,6 @@ public class Matrix2d
                             int.Parse(parts[2]), int.Parse(parts[3]));
     }
     public static Matrix2d Transpose(Matrix2d m) => new Matrix2d(m._a, m._c, m._b, m._d);
-    public int Determinant() => _a * _d - _b * _c;
-    public static int Det(Matrix2d m) => m.Determinant();
+    public int Det() => _a * _d - _b * _c;
+    public static int Determinant(Matrix2d m) => m.Det();
 }
