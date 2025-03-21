@@ -63,4 +63,44 @@ public class Matrix2dTestOperators
         Assert.AreEqual(m1.C * m2.A + m1.D * m2.C, m3.C);
         Assert.AreEqual(m1.C * m2.B + m1.D * m2.D, m3.D);
     }
+    [TestMethod]
+    public void Test_Operator_Multiply_Matrix_Left()
+    {
+        var m1 = new Matrix2d(1, 2, 3, 4);
+        var m2 = 2;
+        var m3 = m1 * m2;
+        Assert.AreEqual(2, m3.A);
+        Assert.AreEqual(4, m3.B);
+        Assert.AreEqual(6, m3.C);
+        Assert.AreEqual(8, m3.D);
+        Assert.AreEqual(m1.A * m2, m3.A);
+        Assert.AreEqual(m1.B * m2, m3.B);
+        Assert.AreEqual(m1.C * m2, m3.C);
+        Assert.AreEqual(m1.D * m2, m3.D);
+    }
+    [TestMethod]
+    public void Test_Operator_Multiply_Matrix_Right()
+    {
+        var m1 = 2;
+        var m2 = new Matrix2d(1, 2, 3, 4);
+        var m3 = m1 * m2;
+        Assert.AreEqual(2, m3.A);
+        Assert.AreEqual(4, m3.B);
+        Assert.AreEqual(6, m3.C);
+        Assert.AreEqual(8, m3.D);
+        Assert.AreEqual(m1 * m2.A, m3.A);
+        Assert.AreEqual(m1 * m2.B, m3.B);
+        Assert.AreEqual(m1 * m2.C, m3.C);
+        Assert.AreEqual(m1 * m2.D, m3.D);
+    }
+    [TestMethod]
+    public void Test_Operator_Negate()
+    {
+        var m1 = new Matrix2d(1, 2, 3, 4);
+        var m2 = -m1;
+        Assert.AreEqual(-1, m2.A);
+        Assert.AreEqual(-2, m2.B);
+        Assert.AreEqual(-3, m2.C);
+        Assert.AreEqual(-4, m2.D);
+    }
 }
