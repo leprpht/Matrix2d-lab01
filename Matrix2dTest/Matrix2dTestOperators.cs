@@ -108,6 +108,14 @@ public class Matrix2dTestOperators
     {
         var m1 = new Matrix2d(1, 2, 3, 4);
         var m2 = (int[,])m1;
+        Assert.AreEqual(1, m2[0, 0]);
+        Assert.AreEqual(2, m2[0, 1]);
+        Assert.AreEqual(3, m2[1, 0]);
+        Assert.AreEqual(4, m2[1, 1]);
+        Assert.AreEqual(m1.A, m2[0, 0]);
+        Assert.AreEqual(m1.B, m2[0, 1]);
+        Assert.AreEqual(m1.C, m2[1, 0]);
+        Assert.AreEqual(m1.D, m2[1, 1]);
     }
     [TestMethod]
     public void Test_Operator_Implicit_Conversion()
@@ -122,9 +130,5 @@ public class Matrix2dTestOperators
         Assert.AreEqual(a[0, 1], m.B);
         Assert.AreEqual(a[1, 0], m.C);
         Assert.AreEqual(a[1, 1], m.D);
-        Assert.AreEqual(1, a[0, 0]);
-        Assert.AreEqual(2, a[0, 1]);
-        Assert.AreEqual(3, a[1, 0]);
-        Assert.AreEqual(4, a[1, 1]);
     }
 }
